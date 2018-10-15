@@ -1,4 +1,4 @@
-package com.dev.l.oneforall.ui.activity;
+package com.dev.l.oneforall.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,17 +17,16 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.dev.l.oneforall.R;
-import com.dev.l.oneforall.ui.fragment.AboutFragment;
+import com.dev.l.oneforall.fragment.AboutFragment;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
     @BindView(R.id.nav_view)
     NavigationView navigationView;
 
@@ -38,20 +37,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         initView();
-
     }
 
     private void initView() {
         setSupportActionBar(toolbar);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -102,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_about) {
             switchContent(aboutFragment);
+            toolbar.setTitle("关于");
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -121,10 +113,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .add(R.id.content_main, fragment)
                         .commit();
             } else {
+                // 隐藏当前的fragment，显示下一个
                 fm.beginTransaction()
                         .hide(currentFragment)
                         .show(fragment)
-                        .commit(); // 隐藏当前的fragment，显示下一个
+                        .commit();
             }
             currentFragment = fragment;
         }

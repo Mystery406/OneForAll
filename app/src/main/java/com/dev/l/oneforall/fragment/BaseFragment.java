@@ -1,4 +1,4 @@
-package com.dev.l.oneforall.ui;
+package com.dev.l.oneforall.fragment;
 
 import android.support.v4.app.Fragment;
 
