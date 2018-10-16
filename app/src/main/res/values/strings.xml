@@ -6,9 +6,15 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="about_one_for_all">blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla</string>
-    <string name="about_developer">blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-    \n\nblablabla
-    \n\nblablabla
+    <string name="about_one_for_all">
+        经过一代一代的传承培育，由求救之声和义勇之心交织而成的力量结晶。实际上是“能够储存力量”和“赋予他人”两种个性的混合个性，
+        将众多人份极限的身体能力收束于一身，可以造成巨大破坏的冲击或肉眼难以捕捉的高速移动。
+        在拥有者持有想把个性传承给他人的想法时可以将个性传承给他人，除此之外无法被任何力量剥夺。与之相反的All·for·One是拥有“夺走个性”和“赋予他人”的个性，也是One·for·All产生的原因。
+        通过一代代的传承不断变强的潜力无穷的顶级个性。
+    </string>
+    <string name="about_developer">
+        搞这个项目的初衷是想把所有学到的用到的东西整理到一个项目里方便以后查看。
+    \n\n考虑到时间问题和作者的懒惰性，可能更新真的是龟速。
+    \n\n最后感谢一下所有支持这个项目的同学啦！（虽然可能没有- -）
     </string>
 </resources>
