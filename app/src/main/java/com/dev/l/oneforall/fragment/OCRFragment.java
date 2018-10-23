@@ -26,6 +26,7 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 
+import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
@@ -92,7 +93,7 @@ public class OCRFragment extends BaseFragment {
                 .imageFormat(PictureMimeType.PNG)// 拍照保存图片格式后缀,默认jpeg
                 .isZoomAnim(true)// 图片列表点击 缩放效果 默认true
 //                .sizeMultiplier(0.5f)// glide 加载图片大小 0~1之间 如设置 .glideOverride()无效
-//                .setOutputCameraPath("/CustomPath")// 自定义拍照保存路径,可不填
+                .setOutputCameraPath("/OneForAll/CameraImage/")// 自定义拍照保存路径,可不填
                 .enableCrop(false)// 是否裁剪 true or false
                 .compress(false)// 是否压缩 true or false
 //                .glideOverride()// int glide 加载宽高，越小图片列表越流畅，但会影响列表图片浏览的清晰度
