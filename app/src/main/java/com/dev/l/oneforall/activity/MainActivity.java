@@ -2,9 +2,7 @@ package com.dev.l.oneforall.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -14,10 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.dev.l.oneforall.R;
 import com.dev.l.oneforall.fragment.AboutFragment;
+import com.dev.l.oneforall.fragment.OCRFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.nav_view)
     NavigationView navigationView;
 
-    private Fragment currentFragment, aboutFragment;
+    private Fragment currentFragment, aboutFragment, ocrFragment;
     private FragmentManager fm;
 
     @Override
@@ -53,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fm = getSupportFragmentManager();
         aboutFragment = new AboutFragment();
+        ocrFragment = new OCRFragment();
     }
 
     @Override
@@ -83,8 +82,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.nav_camera) {
-
+        if (id == R.id.nav_ocr) {
+            switchContent(ocrFragment);
+            toolbar.setTitle("文字识别");
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -100,6 +100,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    /**
+     * 切换fragment
+     *
+     * @param fragment
+     */
     private void switchContent(Fragment fragment) {
         if (currentFragment != fragment) {
             if (!fragment.isAdded()) {
