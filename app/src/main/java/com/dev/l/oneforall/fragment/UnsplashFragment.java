@@ -112,7 +112,6 @@ public class UnsplashFragment extends BaseFragment {
                 .doOnNext(new Consumer<List<PhotoInfo>>() {
                     @Override
                     public void accept(List<PhotoInfo> photoInfos) {
-                        List<String> photoIdList = new ArrayList<>();
                         if (needCleanList) {
                             photoList.clear();
                         }
