@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.dev.l.oneforall.R;
 import com.dev.l.oneforall.fragment.AboutFragment;
 import com.dev.l.oneforall.fragment.OCRFragment;
+import com.dev.l.oneforall.fragment.UnsplashFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.nav_view)
     NavigationView navigationView;
 
-    private Fragment currentFragment, aboutFragment, ocrFragment;
+    private Fragment currentFragment, aboutFragment, ocrFragment, unsplashFragment;
     private FragmentManager fm;
 
     @Override
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fm = getSupportFragmentManager();
         aboutFragment = new AboutFragment();
         ocrFragment = new OCRFragment();
+        unsplashFragment = new UnsplashFragment();
     }
 
     @Override
@@ -86,7 +88,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             switchContent(ocrFragment);
             toolbar.setTitle("文字识别");
         } else if (id == R.id.nav_gallery) {
-
+            switchContent(unsplashFragment);
+            toolbar.setTitle("看图");
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

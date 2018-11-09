@@ -1,4 +1,4 @@
-package com.dev.l.oneforall.entity;
+package com.dev.l.oneforall.entity.ocr;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -18,7 +18,7 @@ import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.dev.l.oneforall.R;
-import com.dev.l.oneforall.entity.OcrResult;
+import com.dev.l.oneforall.entity.ocr.OcrResult;
 import com.dev.l.oneforall.util.RecognizeService;
 import com.google.gson.Gson;
 import com.luck.picture.lib.PictureSelector;
@@ -26,7 +26,6 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 
-import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
