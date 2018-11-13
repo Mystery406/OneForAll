@@ -18,6 +18,7 @@ import com.dev.l.oneforall.adapter.UnsplashAdapter;
 import com.dev.l.oneforall.api.ApiManager;
 import com.dev.l.oneforall.callback.PhotoDiffCallback;
 import com.dev.l.oneforall.entity.unsplash.PhotoInfo;
+import com.dev.l.oneforall.util.DownloadUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -173,8 +174,9 @@ public class UnsplashFragment extends BaseFragment {
         adapter.setOnDownloadClickListener(new UnsplashAdapter.OnDownloadClickListener() {
             @Override
             public void onDownloadClick(int position) {
-                //点击下载按钮
-
+                // TODO: 2018/11/13 目前是点击后单线程下载，以后做成多任务下载
+                DownloadUtils.showDownloadDialog(UnsplashFragment.this,
+                        photoList.get(position).getLinks().getDownload(), compositeDisposable);
             }
         });
 
