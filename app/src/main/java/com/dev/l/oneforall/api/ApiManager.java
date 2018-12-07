@@ -17,6 +17,7 @@ public class ApiManager {
     private volatile static ApiManager apiManager;
     private final OkHttpClient client;
     private UnsplashApi unsplashApi;
+    private HitokotoApi hitokotoApi;
 
     /**
      * 双重校验锁实现单例
@@ -74,6 +75,19 @@ public class ApiManager {
             unsplashApi = retrofit.create(UnsplashApi.class);
         }
         return unsplashApi;
+    }
+
+    public HitokotoApi getHitokotoApi() {
+        if (hitokotoApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(ApiConstants.BASE_HITOKOTO_URL)
+                    .client(client)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            hitokotoApi = retrofit.create(HitokotoApi.class);
+        }
+        return hitokotoApi;
     }
 
 }

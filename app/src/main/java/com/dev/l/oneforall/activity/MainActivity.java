@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import com.dev.l.oneforall.R;
 import com.dev.l.oneforall.fragment.AboutFragment;
+import com.dev.l.oneforall.fragment.HitokotoFragment;
 import com.dev.l.oneforall.fragment.OCRFragment;
 import com.dev.l.oneforall.fragment.UnsplashFragment;
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.nav_view)
     NavigationView navigationView;
 
-    private Fragment currentFragment, aboutFragment, ocrFragment, unsplashFragment;
+    private Fragment currentFragment, aboutFragment, ocrFragment, unsplashFragment, hitokotoFragment;
     private FragmentManager fm;
 
     @Override
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         aboutFragment = new AboutFragment();
         ocrFragment = new OCRFragment();
         unsplashFragment = new UnsplashFragment();
+        hitokotoFragment = new HitokotoFragment();
     }
 
     @Override
@@ -90,8 +92,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_gallery) {
             switchContent(unsplashFragment);
             toolbar.setTitle("看图");
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_hitokoto) {
+            switchContent(hitokotoFragment);
+            toolbar.setTitle("一言");
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_about) {
