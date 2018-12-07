@@ -116,7 +116,6 @@ public class UnsplashFragment extends BaseFragment {
                         if (needCleanList) {
                             photoList.clear();
                         }
-                        // TODO: 2018/11/9 弱智服务器不知道为什么第二页开始会返回重复的数据导致照片重复，以后再解决
                         photoList.addAll(photoInfos);
                         PhotoDiffCallback callback = new PhotoDiffCallback(adapter.getPhotoInfoList(), photoList);
                         diffResult = DiffUtil.calculateDiff(callback);
