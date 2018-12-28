@@ -18,6 +18,7 @@ public class ApiManager {
     private final OkHttpClient client;
     private UnsplashApi unsplashApi;
     private HitokotoApi hitokotoApi;
+    private GankApi gankApi;
 
     /**
      * 双重校验锁实现单例
@@ -90,4 +91,16 @@ public class ApiManager {
         return hitokotoApi;
     }
 
+    public GankApi getGankApi() {
+        if (gankApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(ApiConstants.BASE_GANK_URL)
+                    .client(client)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            gankApi = retrofit.create(GankApi.class);
+        }
+        return gankApi;
+    }
 }

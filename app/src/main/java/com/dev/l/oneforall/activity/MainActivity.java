@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import com.dev.l.oneforall.R;
 import com.dev.l.oneforall.fragment.AboutFragment;
+import com.dev.l.oneforall.fragment.GankFragment;
 import com.dev.l.oneforall.fragment.HitokotoFragment;
 import com.dev.l.oneforall.fragment.OCRFragment;
 import com.dev.l.oneforall.fragment.UnsplashFragment;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.nav_view)
     NavigationView navigationView;
 
-    private Fragment currentFragment, aboutFragment, ocrFragment, unsplashFragment, hitokotoFragment;
+    private Fragment currentFragment, aboutFragment, ocrFragment, unsplashFragment, hitokotoFragment, gankFragment;
     private FragmentManager fm;
 
     @Override
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ocrFragment = new OCRFragment();
         unsplashFragment = new UnsplashFragment();
         hitokotoFragment = new HitokotoFragment();
+        gankFragment = new GankFragment();
     }
 
     @Override
@@ -91,12 +93,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toolbar.setTitle("文字识别");
         } else if (id == R.id.nav_gallery) {
             switchContent(unsplashFragment);
-            toolbar.setTitle("看图");
+            toolbar.setTitle("Unsplash");
         } else if (id == R.id.nav_hitokoto) {
             switchContent(hitokotoFragment);
             toolbar.setTitle("一言");
         } else if (id == R.id.nav_manage) {
-
+            switchContent(gankFragment);
+            toolbar.setTitle("妹纸");
         } else if (id == R.id.nav_about) {
             switchContent(aboutFragment);
             toolbar.setTitle("关于");
